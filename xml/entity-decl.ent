@@ -60,7 +60,7 @@
 <!ENTITY ostack          "<phrase xmlns='http://docbook.org/ns/docbook'>OpenStack</phrase>">
 <!ENTITY latest_ostack   "Newton">
 <!ENTITY crow            "Crowbar">
-<!ENTITY wi              "Web interface">
+<!ENTITY wi              "Web interface">  
 <!ENTITY WI              "Web Interface">
 <!ENTITY barcl           "barclamp">
 <!ENTITY Barcl           "Barclamp">
