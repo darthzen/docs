@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Worksheet | Planning an OpenStack Deployment | SUSE OpenStack Cloud 7</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.0" /><meta name="product-name" content="SUSE OpenStack Cloud" /><meta name="product-number" content="7" /><meta name="book-title" content="Planning an OpenStack Deployment" /><meta name="chapter-title" content="Chapter 4. Worksheet" /><link rel="home" href="index.html" title="Planning an OpenStack Deployment" /><link rel="up" href="index.html" title="Planning an OpenStack Deployment" /><link rel="prev" href="cha.poc.html" title="Chapter 3. Performing a Proof-of-Concept" /><link rel="next" href="cha.production.html" title="Chapter 5. Going from Proof-of-Concept to Production" /><script type="text/javascript">
+
+var protocol = window.location.protocol.toLowerCase();
+if ( protocol != 'file:' ) {
+  var agent = navigator.userAgent.toLowerCase();
+  var wanted = ( protocol == 'https:') ? 'https' : 'http';
+  var file = 'fonts.css';
+  document.write('<link rel="stylesheet" type="text/css" href="' + wanted + '://static.opensuse.org/fonts/'+ file +'"></link>');
+}
+else {
+   document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="http://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="offline js-off"><div id="_outer-wrap"><div id="_white-bg"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="Planning an OpenStack Deployment"><span class="book-icon">Planning an OpenStack Deployment</span></a><span> › </span><a class="crumb" href="cha.worksheet.html">Worksheet</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Planning an OpenStack Deployment</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="cha.introduction.html"><span class="number">1 </span><span class="name">Introduction</span></a></li><li class="inactive"><a href="cha.preliminary.html"><span class="number">2 </span><span class="name">Preliminary Considerations</span></a></li><li class="inactive"><a href="cha.poc.html"><span class="number">3 </span><span class="name">Performing a Proof-of-Concept</span></a></li><li class="inactive"><a href="cha.worksheet.html"><span class="number">4 </span><span class="name">Worksheet</span></a></li><li class="inactive"><a href="cha.production.html"><span class="number">5 </span><span class="name">Going from Proof-of-Concept to Production</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Chapter 3. Performing a Proof-of-Concept" href="cha.poc.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 5. Going from Proof-of-Concept to Production" href="cha.production.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="Planning an OpenStack Deployment"><span class="book-icon">Planning an OpenStack Deployment</span></a><span> › </span><a class="crumb" href="cha.worksheet.html">Worksheet</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Chapter 3. Performing a Proof-of-Concept" href="cha.poc.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 5. Going from Proof-of-Concept to Production" href="cha.production.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class=""><div class="documentation"><div class="chapter " id="cha.worksheet"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE OpenStack Cloud</span> <span class="productnumber ">7</span></div><div><h1 class="title"><span class="number">4 </span><span class="name">Worksheet</span> </h1></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="cha.worksheet.html#sect.worksheet.ha"><span class="number">4.1 </span><span class="name">High-Availability</span></a></span></dt><dt><span class="sect1"><a href="cha.worksheet.html#sect.worksheet.net"><span class="number">4.2 </span><span class="name">Networking</span></a></span></dt></dl></div></div><div class="sect1 " id="sect.worksheet.ha"><div class="titlepage"><div><div><h2 class="title" id="sect.worksheet.ha"><span class="number">4.1 </span><span class="name">High-Availability</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sect.worksheet.ha">#</a></h2></div></div></div><p>In order to scale your cloud effectively and still provide the levels of service that your users expect, you will likely need to implement high-availability services for the control plane. The level of clustering will depend greatly on the
+                    mixture of your level of paranoia, combined with the practical limits of budget, physical resources, and ability/willingness to introduce additional complexity to your implementation.</p><div class="itemizedlist "><p>If you decide to cluster, you can take two different approaches:</p><ul class="itemizedlist"><li class="listitem "><p>Build a single cluster and put all the services on it. If you need to minimize resource contention, you may introduce affinity rules to the cluster that will have it prefer to keep the active/passice services (PostgreSQL and RabbitMQ) on their
+                            own server, and allow ha-proxy to load-balance the rest of the services.</p></li><li class="listitem "><p>Build multiple clusters that can each be dedicated to specific OpenStack services. This can be as simple and efficient as a single 2-node cluster for PostgreSQL/RabbitMQ, and a separate cluster for the remaining load-balanced services, or even
+                            wholly-dedicated clusters for any number of services.</p></li></ul></div><p>The decision for your cluster configuration will directly impact the number of servers you will need to buy, although usually budget is the limiting factor for how many systems you can have, and you will need to optimize your resources and
+                    configuration accordingly.
+                    <a class="link" href="https://www.suse.com/documentation/suse-cloud-5/singlehtml/book_cloud_deploy/book_cloud_deploy.html#sec.depl.reg.ha.control" target="_blank">DG 2.6.2</a>
+                </p><p>Regardless of your eventual cluster configuration, you will need to prepare shared storage for housing your PostgreSQL data, and again for RabbitMQ. What will you use for your shared storage for the database-server and rabbitmq-server? (NFS,
+                    DRBD (requires an extra disk for each node in the cluster) external NAS, SAN)</p><p>DG section 2.7.5</p><p>DG section 2.7.2</p><p>The next step is to determine what mechanism you want to use for cluster fencing, or STONITH (Shoot The Other Node In The Head). The most popular fencing method is SBD, which requires a small shared block device between all the nodes in the
+                    cluster. You may even want to consider multiple SBD devices via multipathing to reduce false alarms and create a more robust solution. Additional STONITH methods include integrating with the IPMI device in your server, or leveraging a
+                    network-connected APC. Please note that if you decide not to use SBD for fencing that you will want to have an odd number of servers in your cluster so that quorum can be attained.</p><p>DG section 2.7.5</p></div><div class="sect1 " id="sect.worksheet.net"><div class="titlepage"><div><div><h2 class="title" id="sect.worksheet.net"><span class="number">4.2 </span><span class="name">Networking</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sect.worksheet.net">#</a></h2></div></div></div><p>Networking is probably the single most important area for planning, as it is the most complex and is extremely difficult to change after deployment without having to rebuild your cloud.</p><div class="sect2 " id="sect.worksheet.net.description"><div class="titlepage"><div><div><h3 class="title" id="sect.worksheet.net.description"><span class="number">4.2.1 </span><span class="name">Understanding Network Choices</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sect.worksheet.net.description">#</a></h3></div></div></div><div class="itemizedlist "><p>Therefore, prior to commencing any cloud deployment, please define the following network subnets (defaults in parentheses):</p><ul class="itemizedlist"><li class="listitem "><p>Admin (<code class="systemitem">192.168.124.0/24</code>) – Administrative network that will be used to deploy and maintain all the cloud infrastructure nodes. The size of this subnet is the upper limit to the number of
+compute/control/storage nodes that can be provisioned. This network will have a PXE boot server on it, and therefore must be isolated from other networks. The TFTP service required for PXE does not understand VLAN tags, so it must appear as an
+untagged network (ie - trunk the ports).</p></li><li class="listitem "><p>BMC (<code class="systemitem">192.168.124.0/24</code>) – Administrative network for accessing IPMI devices for the cloud infrastructure. It must be on the same subnet as the admin network unless you use a VLAN.</p></li><li class="listitem "><p>Fixed (<code class="systemitem">192.168.123.0/24 – tag 500</code>) – Cloud-wide network that most cloud instances will connect to in order to interact with each other and the outside world. While some number of systems may exist in
+isolated networks and are never connected to the fixed network, generally speaking the range of this subnet defines the maximum number of concurrent cloud workloads that can be run.</p></li><li class="listitem "><p>SDN (<code class="systemitem">192.168.130.0/24 – tag 700</code>) – Cloud-wide network that will be used for the software-defined networking stack. The subnet for this needs to be at least as large as the admin network.</p></li><li class="listitem "><p>Storage (<code class="systemitem">192.168.125.0/24 – tag 200</code>) – Network used for communicating with Swift storage nodes. Even if there are no plans to use Swift, the Admin server still requires that this network be defined. If
+you opt to use SUSE Enterprise Storage and deploy it via the cloud admin node, it may live on this network as well. It is generally, however, a better idea to deploy SUSE Enterprise Storage as its own stand-alone service and integrate it with your
+cloud, allowing it to provide storage to other areas in your datacenter besides just your cloud.</p></li><li class="listitem "><p>Public (<code class="systemitem">192.168.126.0/24 – tag 300</code>) – Used for exposing OpenStack services and APIs to external users. Must be routable on your existing LAN. Only the control node servers will be on this network, so a small address space may be used when defining the DHCP range.</p></li><li class="listitem "><p>Floating (<code class="systemitem">192.168.126.0/24 – tag 300</code>) – Used for exposing cloud instances externally. Must be the same subnet as the public network. The number of IP's designated for this network will be the hard upper
+limit for the number of cloud instances that can be concurrently exposed outside of your cloud.</p></li></ul></div></div><div class="sect2 " id="sec.worksheet.net.tables"><div class="titlepage"><div><div><h3 class="title" id="sec.worksheet.net.tables"><span class="number">4.2.2 </span><span class="name">Network Tables</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sec.worksheet.net.tables">#</a></h3></div></div></div><div class="table" id="id1498"><div class="table-title-wrap"><h6 class="table-title"><span class="number">Table 4.1: </span><span class="name">Admin/BMC Network Address Allocation </span><a title="Permalink" class="permalink" href="cha.worksheet.html#id1498">#</a></h6></div><div class="table-contents"><table class="table" summary="Admin/BMC Network Address Allocation" border="1"><colgroup><col class="1" /><col class="2" /><col class="3" /><col class="4" /><col class="5" /></colgroup><thead><tr><th>
+                                        <p>Function</p>
+                                    </th><th>
+                                        <p>Default Address(es)</p>
+                                    </th><th>
+                                        <p>VLAN</p>
+                                    </th><th>
+                                        <p>IP Address(es)</p>
+                                    </th><th>
+                                        <p>Notes</p>
+                                    </th></tr></thead><tbody><tr><td>
+                                        <p>Netmask</p>
+                                    </td><td>
+                                        <p>255.255.255.0</p>
+                                    </td><td>
+                                        <p>N/A</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>router</p>
+                                    </td><td>
+                                        <p>192.168.124.1</p>
+                                    </td><td>
+                                        <p>None</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>admin</p>
+                                    </td><td>
+                                        <p>192.168.124.10-11</p>
+                                    </td><td>
+                                        <p>None</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>DHCP</p>
+                                    </td><td>
+                                        <p>192.168.124.21-80</p>
+                                    </td><td>
+                                        <p>None</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>Host</p>
+                                    </td><td>
+                                        <p>192.168.124.81-160</p>
+                                    </td><td>
+                                        <p>None</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>BMC VLAN host</p>
+                                    </td><td>
+                                        <p>192.168.124.161</p>
+                                    </td><td>
+                                        <p>100</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p>Optional - If the IPMI devices are already configured on a VLAN and you do not wish to change their configuration, use this network.</p>
+                                    </td></tr><tr><td>
+                                        <p>BMC host</p>
+                                    </td><td>
+                                        <p>192.168.124.162-240</p>
+                                    </td><td>
+                                        <p>None</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>Switch</p>
+                                    </td><td>
+                                        <p>192.168.124.241-250</p>
+                                    </td><td>
+                                        <p>None</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr></tbody></table></div></div><div class="table" id="id1607"><div class="table-title-wrap"><h6 class="table-title"><span class="number">Table 4.2: </span><span class="name">Bastion Network Address Allocation </span><a title="Permalink" class="permalink" href="cha.worksheet.html#id1607">#</a></h6></div><div class="table-contents"><table class="table" summary="Bastion Network Address Allocation" width="100%" border="1"><colgroup><col class="1" /><col class="2" /><col class="3" /><col class="4" /><col class="5" /></colgroup><thead><tr><th>
+                                        <p>Subnet</p>
+                                    </th><th>
+                                        <p>Gateway</p>
+                                    </th><th>
+                                        <p>DNS</p>
+                                    </th><th>
+                                        <p>IP Address</p>
+                                    </th><th>
+                                        <p>Proxy</p>
+                                    </th></tr></thead><tbody><tr><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr></tbody></table></div></div><div class="table" id="id1639"><div class="table-title-wrap"><h6 class="table-title"><span class="number">Table 4.3: </span><span class="name">Storage Network Address Allocation </span><a title="Permalink" class="permalink" href="cha.worksheet.html#id1639">#</a></h6></div><div class="table-contents"><table class="table" summary="Storage Network Address Allocation" width="100%" border="1"><colgroup><col class="1" /><col class="2" /><col class="3" /><col class="4" /><col class="5" /></colgroup><thead><tr><th>
+                                        <p>Function</p>
+                                    </th><th>
+                                        <p>Default Address(es)</p>
+                                    </th><th>
+                                        <p>VLAN</p>
+                                    </th><th>
+                                        <p>IP Address(es)</p>
+                                    </th><th>
+                                        <p>Notes</p>
+                                    </th></tr></thead><tbody><tr><td>
+                                        <p>host</p>
+                                    </td><td>
+                                        <p>192.168.125.10-239</p>
+                                    </td><td>
+                                        <p>200</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr></tbody></table></div></div><div class="table" id="id1671"><div class="table-title-wrap"><h6 class="table-title"><span class="number">Table 4.4: </span><span class="name">Fixed Network Address Allocation </span><a title="Permalink" class="permalink" href="cha.worksheet.html#id1671">#</a></h6></div><div class="table-contents"><table class="table" summary="Fixed Network Address Allocation" width="100%" border="1"><colgroup><col class="1" /><col class="2" /><col class="3" /><col class="4" /><col class="5" /></colgroup><thead><tr><th>
+                                        <p>Function</p>
+                                    </th><th>
+                                        <p>Default Address(es)</p>
+                                    </th><th>
+                                        <p>VLAN</p>
+                                    </th><th>
+                                        <p>IP Address(es)</p>
+                                    </th><th>
+                                        <p>Notes</p>
+                                    </th></tr></thead><tbody><tr><td>
+                                        <p>Netmask</p>
+                                    </td><td>
+                                        <p>255.255.255.0</p>
+                                    </td><td>
+                                        <p>N/A</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>router</p>
+                                    </td><td>
+                                        <p>192.168.123.1-49</p>
+                                    </td><td>
+                                        <p>500</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>dhcp</p>
+                                    </td><td>
+                                        <p>192.168.123.50-254</p>
+                                    </td><td>
+                                        <p>500</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr></tbody></table></div></div><div class="table" id="id1725"><div class="table-title-wrap"><h6 class="table-title"><span class="number">Table 4.5: </span><span class="name">Public/Floating Network Address Allocation </span><a title="Permalink" class="permalink" href="cha.worksheet.html#id1725">#</a></h6></div><div class="table-contents"><table class="table" summary="Public/Floating Network Address Allocation" width="100%" border="1"><colgroup><col class="1" /><col class="2" /><col class="3" /><col class="4" /><col class="5" /></colgroup><thead><tr><th>
+                                        <p>Function</p>
+                                    </th><th>
+                                        <p>Default Address(es)</p>
+                                    </th><th>
+                                        <p>VLAN</p>
+                                    </th><th>
+                                        <p>IP Address(es)</p>
+                                    </th><th>
+                                        <p>Notes</p>
+                                    </th></tr></thead><tbody><tr><td>
+                                        <p>Netmask</p>
+                                    </td><td>
+                                        <p>255.255.255.0</p>
+                                    </td><td>
+                                        <p>N/A</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>router</p>
+                                    </td><td>
+                                        <p>192.168.126.1</p>
+                                    </td><td>
+                                        <p>500</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>public host</p>
+                                    </td><td>
+                                        <p>192.168.126.2-49</p>
+                                    </td><td>
+                                        <p>300</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>public dhcp</p>
+                                    </td><td>
+                                        <p>192.168.126.50-127</p>
+                                    </td><td>
+                                        <p>300</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>floating host</p>
+                                    </td><td>
+                                        <p>192.168.126.129-191</p>
+                                    </td><td>
+                                        <p>300</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr></tbody></table></div></div><div class="table" id="id1801"><div class="table-title-wrap"><h6 class="table-title"><span class="number">Table 4.6: </span><span class="name">Software-Defined Networking (SDN) Address Allocation </span><a title="Permalink" class="permalink" href="cha.worksheet.html#id1801">#</a></h6></div><div class="table-contents"><table class="table" summary="Software-Defined Networking (SDN) Address Allocation" width="100%" border="1"><colgroup><col class="1" /><col class="2" /><col class="3" /><col class="4" /><col class="5" /></colgroup><thead><tr><th>
+                                        <p>Function</p>
+                                    </th><th>
+                                        <p>Default Address(es)</p>
+                                    </th><th>
+                                        <p>VLAN</p>
+                                    </th><th>
+                                        <p>IP Address(es)</p>
+                                    </th><th>
+                                        <p>Notes</p>
+                                    </th></tr></thead><tbody><tr><td>
+                                        <p>Netmask</p>
+                                    </td><td>
+                                        <p>255.255.255.0</p>
+                                    </td><td>
+                                        <p>N/A</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr><tr><td>
+                                        <p>host</p>
+                                    </td><td>
+                                        <p>192.168.130.10-254</p>
+                                    </td><td>
+                                        <p>700</p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td><td>
+                                        <p> </p>
+                                    </td></tr></tbody></table></div></div></div><div class="sect2 " id="sec.worksheet.hypervisor"><div class="titlepage"><div><div><h3 class="title" id="sec.worksheet.hypervisor"><span class="number">4.2.3 </span><span class="name">Compute Infrastructure Information</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sec.worksheet.hypervisor">#</a></h3></div></div></div><div class="variablelist "><dl class="variablelist"><dt id="id1847"><span class="term ">Hypervisor(s)</span></dt><dd><p>With which hypervisor or hypervisors do you intend to deploy and integrate?</p><div class="itemizedlist "><p>Options include:</p><ul class="itemizedlist"><li class="listitem "><p>KVM</p></li><li class="listitem "><p>Xen</p></li><li class="listitem "><p>VMware vSphere</p></li><li class="listitem "><p>Hyper-V</p></li><li class="listitem "><p>zVM</p></li><li class="listitem "><p>Bare metal</p></li></ul></div><div id="id1865" class="admonition caution"><img class="symbol" alt="Caution" title="Caution" src="static/images/icon-caution.png" /><h6>Caution</h6><p>OpenStack security groups are currently implemented via iptables for non-proprietary software-defined networking stacks (Open vSwitch, Linuxbridge, Flat).  As such, non-Linux hosts (VMware, Hyper-V, zVM) will not take advantage of these security groups and will have to handle firewall rules inside the guest workload using their native toolsets.</p></div><p> </p><p>______________________________________________</p></dd><dt id="id1869"><span class="term ">Containers</span></dt><dd><p>If you intend to manage containers with this implementation, which deployment/management model(s) do you intend to use?</p><div class="itemizedlist "><p>Options include:</p><ul class="itemizedlist"><li class="listitem "><p>Bare metal (dedicated Docker host)</p></li><li class="listitem "><p>Virtualized (via the
+                                            <span class="application ">Magnum</span>
+                                            service)</p></li></ul></div><div id="id1880" class="admonition caution"><img class="symbol" alt="Caution" title="Caution" src="static/images/icon-caution.png" /><h6>Caution</h6><p>The nova-docker plugin for doing Docker deployments to bare metal, outside of an orchestration service like Heat or Magnum, has been deprecated and will eventually be removed from the product.</p></div><p> </p><p>______________________________________________</p></dd></dl></div></div><div class="sect2 " id="sec.worksheet.net.misc"><div class="titlepage"><div><div><h3 class="title" id="sec.worksheet.net.misc"><span class="number">4.2.4 </span><span class="name">Additional Network Information</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sec.worksheet.net.misc">#</a></h3></div></div></div><div class="variablelist "><dl class="variablelist"><dt id="id1887"><span class="term ">Interface Mode</span></dt><dd><p>Which network mode will you will be using? ((Single, Dual, Teaming) Remember to take into account whether you are using a highly available control plane or not, if so then you should choose Teaming) DG 2.1.2</p><p> </p><p>______________________________________________</p></dd><dt id="id1893"><span class="term ">FQDN</span></dt><dd><p>Fully Qualified Domain Name (FQDN) of the Admin server (cannot be changed after deployment).</p><p> </p><p>______________________________________________</p></dd><dt id="id1899"><span class="term ">External DNS</span></dt><dd><p>Are there additional DNS servers you want SUSE Cloud to forward to for non-local DNS records?</p><p> </p><p>______________________________________________</p></dd><dt id="id1905"><span class="term ">
+                                <span class="application ">Neutron</span>
+                                L2 Plugin</span></dt><dd><p>Which plugin do you wish to use for your software-defined networking stack?</p><div class="itemizedlist "><p>Options include:</p><ul class="itemizedlist"><li class="listitem "><p>Open vSwitch (Default)</p></li><li class="listitem "><p>Linuxbridge</p></li><li class="listitem "><p>VMware NSX</p></li><li class="listitem "><p>Cisco Nexus</p></li><li class="listitem "><p>Cisco ACI</p></li><li class="listitem "><p>Midokura</p></li></ul></div><div id="id1924" class="admonition caution"><img class="symbol" alt="Caution" title="Caution" src="static/images/icon-caution.png" /><h6>Caution</h6><p>VMware only supports vSphere as part of an OpenStack implementation if used with their NSX SDN.</p></div><p> </p><p>______________________________________________</p></dd><dt id="id1928"><span class="term "><span class="application ">Neutron</span>
+                            Encapsulation Plugin</span></dt><dd><p>Which packet encapsulation protocol do you wish to use for your software-defined networking stack?</p><div class="itemizedlist "><p>Options include:</p><ul class="itemizedlist"><li class="listitem "><p>GRE(default)</p></li><li class="listitem "><p>VXLAN</p></li><li class="listitem "><p>VLAN</p></li><li class="listitem "><p>Flat/None</p></li></ul></div><div id="id1943" class="admonition caution"><img class="symbol" alt="Caution" title="Caution" src="static/images/icon-caution.png" /><h6>Caution</h6><p>The GRE plugin is incompatible with VMware and Hyper-V</p></div><p> </p><p>______________________________________________</p></dd></dl></div></div><div class="sect2 " id="sec.worksheet.storage"><div class="titlepage"><div><div><h3 class="title" id="sec.worksheet.storage"><span class="number">4.2.5 </span><span class="name">Storage Information</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sec.worksheet.storage">#</a></h3></div></div></div><div class="variablelist "><dl class="variablelist"><dt id="id1950"><span class="term ">Image Repository</span></dt><dd><p>Which storage plugin do you wish to use for your image repository (<span class="application ">Glance</span>)
+                            </p><div class="itemizedlist "><p>Options include:</p><ul class="itemizedlist"><li class="listitem "><p>Local</p></li><li class="listitem "><p>Ceph RBD</p></li><li class="listitem "><p>Swift</p></li></ul></div><p> </p><p>______________________________________________</p></dd><dt id="id1965"><span class="term ">Block Storage</span></dt><dd><p>What storage service do you wish to use as the backend for your block storage (<span class="application ">Cinder</span>)</p><div class="itemizedlist "><p>Options include:</p><ul class="itemizedlist"><li class="listitem "><p>Local</p></li><li class="listitem "><p>Ceph RBD</p></li><li class="listitem "><p>NetApp</p></li><li class="listitem "><p>Fujitsu</p></li><li class="listitem "><p>EMC</p></li><li class="listitem "><p>EqualLogic</p></li><li class="listitem "><p>VMware</p></li></ul></div><p> </p><p>______________________________________________</p></dd></dl></div></div><div class="sect2 " id="sec.worksheet.smt"><div class="titlepage"><div><div><h3 class="title" id="sec.worksheet.smt"><span class="number">4.2.6 </span><span class="name">Package Source Information</span> <a title="Permalink" class="permalink" href="cha.worksheet.html#sec.worksheet.smt">#</a></h3></div></div></div><div class="variablelist "><dl class="variablelist"><dt id="id1991"><span class="term ">Subscription-Management Tool (SMT)</span></dt><dd><p>Will you utilize an existing SMT server or install one on the admin node? If existing, then indicate the FQDN below.</p><p> </p><p>______________________________________________</p></dd><dt id="id1997"><span class="term ">SUSE Manager</span></dt><dd><p>As an alternative to SMT, do you wish to use SUSE Manager as the source for your packages? If so, then indicate the FQDN below.</p><p> </p><p>______________________________________________</p></dd></dl></div></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="cha.production.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Chapter 5 </span>Going from Proof-of-Concept to Production</span></a><a class="nav-link" href="cha.poc.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Chapter 3 </span>Performing a Proof-of-Concept</span></a></div><div id="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span id="_share-fb" class="bottom-button">Facebook</span><span class="spacer"> • </span><span id="_share-gp" class="bottom-button">Google+</span><span class="spacer"> • </span><span id="_share-tw" class="bottom-button">Twitter</span><span class="spacer"> • </span><span id="_share-mail" class="bottom-button">E-Mail</span></span></div><div class="print"><span id="_print-button" class="bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2017 
+        SUSE</p><ul><li><a href="http://www.suse.com/company/careers/" target="_top">Careers</a></li><li><a href="http://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="http://www.suse.com/company/" target="_top">About</a></li><li><a href="http://www.suse.com/ContactsOffices/contacts_offices.jsp" target="_top">Contact Us</a></li></ul></div></div></body></html>

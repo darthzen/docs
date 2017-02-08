@@ -286,36 +286,39 @@
             <sect1 xml:id="sect.worksheet.net">
                 <title>Networking</title>
                 <para>Networking is probably the single most important area for planning, as it is the most complex and is extremely difficult to change after deployment without having to rebuild your cloud.</para>
-                <itemizedlist>
-                    <para>Therefore, prior to commencing any cloud deployment, please define the following network subnets (defaults in parentheses):</para>
-                    <listitem>
-                        <para>Admin (<systemitem class="netmask">192.168.124.0/24</systemitem>) – Administrative network that will be used to deploy and maintain all the cloud infrastructure nodes. The size of this subnet is the upper limit to the number of
+                <sect2 xml:id="sect.worksheet.net.description">
+                    <title>Understanding Network Choices</title>
+                    <itemizedlist>
+                        <para>Therefore, prior to commencing any cloud deployment, please define the following network subnets (defaults in parentheses):</para>
+                        <listitem>
+                            <para>Admin (<systemitem class="netmask">192.168.124.0/24</systemitem>) – Administrative network that will be used to deploy and maintain all the cloud infrastructure nodes. The size of this subnet is the upper limit to the number of
 compute/control/storage nodes that can be provisioned. This network will have a PXE boot server on it, and therefore must be isolated from other networks. The TFTP service required for PXE does not understand VLAN tags, so it must appear as an
 untagged network (ie - trunk the ports).</para>
-                    </listitem>
-                    <listitem>
-                        <para>BMC (<systemitem class="netmask">192.168.124.0/24</systemitem>) – Administrative network for accessing IPMI devices for the cloud infrastructure. It must be on the same subnet as the admin network unless you use a VLAN.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Fixed (<systemitem class="netmask">192.168.123.0/24 – tag 500</systemitem>) – Cloud-wide network that most cloud instances will connect to in order to interact with each other and the outside world. While some number of systems may exist in
+                        </listitem>
+                        <listitem>
+                            <para>BMC (<systemitem class="netmask">192.168.124.0/24</systemitem>) – Administrative network for accessing IPMI devices for the cloud infrastructure. It must be on the same subnet as the admin network unless you use a VLAN.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Fixed (<systemitem class="netmask">192.168.123.0/24 – tag 500</systemitem>) – Cloud-wide network that most cloud instances will connect to in order to interact with each other and the outside world. While some number of systems may exist in
 isolated networks and are never connected to the fixed network, generally speaking the range of this subnet defines the maximum number of concurrent cloud workloads that can be run.</para>
-                    </listitem>
-                    <listitem>
-                        <para>SDN (<systemitem class="netmask">192.168.130.0/24 – tag 700</systemitem>) – Cloud-wide network that will be used for the software-defined networking stack. The subnet for this needs to be at least as large as the admin network.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Storage (<systemitem class="netmask">192.168.125.0/24 – tag 200</systemitem>) – Network used for communicating with Swift storage nodes. Even if there are no plans to use Swift, the Admin server still requires that this network be defined. If
+                        </listitem>
+                        <listitem>
+                            <para>SDN (<systemitem class="netmask">192.168.130.0/24 – tag 700</systemitem>) – Cloud-wide network that will be used for the software-defined networking stack. The subnet for this needs to be at least as large as the admin network.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Storage (<systemitem class="netmask">192.168.125.0/24 – tag 200</systemitem>) – Network used for communicating with Swift storage nodes. Even if there are no plans to use Swift, the Admin server still requires that this network be defined. If
 you opt to use SUSE Enterprise Storage and deploy it via the cloud admin node, it may live on this network as well. It is generally, however, a better idea to deploy SUSE Enterprise Storage as its own stand-alone service and integrate it with your
 cloud, allowing it to provide storage to other areas in your datacenter besides just your cloud.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Public (<systemitem class="netmask">192.168.126.0/24 – tag 300</systemitem>) – Used for exposing OpenStack services and APIs to external users. Must be routable on your existing LAN. Only the control node servers will be on this network, so a small address space may be used when defining the DHCP range.</para>
-                    </listitem>
-                    <listitem>
-                        <para>Floating (<systemitem class="netmask">192.168.126.0/24 – tag 300</systemitem>) – Used for exposing cloud instances externally. Must be the same subnet as the public network. The number of IP's designated for this network will be the hard upper
+                        </listitem>
+                        <listitem>
+                            <para>Public (<systemitem class="netmask">192.168.126.0/24 – tag 300</systemitem>) – Used for exposing OpenStack services and APIs to external users. Must be routable on your existing LAN. Only the control node servers will be on this network, so a small address space may be used when defining the DHCP range.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Floating (<systemitem class="netmask">192.168.126.0/24 – tag 300</systemitem>) – Used for exposing cloud instances externally. Must be the same subnet as the public network. The number of IP's designated for this network will be the hard upper
 limit for the number of cloud instances that can be concurrently exposed outside of your cloud.</para>
-                    </listitem>
-                </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </sect2>
                 <sect2 xml:id="sec.worksheet.net.tables">
                     <title>Network Tables</title>
                     <table>
@@ -864,40 +867,281 @@ limit for the number of cloud instances that can be concurrently exposed outside
                         </tgroup>
                     </table>
                 </sect2>
-            </sect1>
-            <!--
-        <sect1 xml:id="sec.template.examples.images">
-          <title>Images</title>
-          <para>
-        This section 1 shows two types of images:  with and without a
-        caption.
-        </para>
-          <figure>
-            <title>Basketball Player</title>
-            <mediaobject>
-              <imageobject role="fo">
-                <imagedata fileref="example2.png" width="75%"/>
-              </imageobject>
-              <imageobject role="html">
-                <imagedata fileref="example2.png" width="75%"/>
-              </imageobject>
-            </mediaobject>
-          </figure>
-          <para>
-        And now an image without caption:
-        </para>
-          <informalfigure>
-            <mediaobject>
-              <imageobject role="fo">
-                <imagedata fileref="example1.png" width="75%"/>
-              </imageobject>
-              <imageobject role="html">
-                <imagedata fileref="example1.png" width="75%"/>
-              </imageobject>
-            </mediaobject>
-          </informalfigure>
-      </sect2>
+                <sect2 xml:id="sec.worksheet.hypervisor">
+                    <title>Compute Infrastructure Information</title>
+                    <variablelist>
+                        <varlistentry>
+                            <term>Hypervisor(s)</term>
+                            <listitem>
+                                <para>With which hypervisor or hypervisors do you intend to deploy and integrate?</para>
+                                <itemizedlist>
+                                    <para>Options include:</para>
+                                    <listitem>
+                                        <para>KVM</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Xen</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>VMware vSphere</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Hyper-V</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>zVM</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Bare metal</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <caution>
+                                    <para>OpenStack security groups are currently implemented via iptables for non-proprietary software-defined networking stacks (Open vSwitch, Linuxbridge, Flat).  As such, non-Linux hosts (VMware, Hyper-V, zVM) will not take advantage of these security groups and will have to handle firewall rules inside the guest workload using their native toolsets.</para>
+                                </caution>
+                                <para>&nbsp;</para>
+                                <para>______________________________________________</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term>Containers</term>
+                            <listitem>
+                                <para>If you intend to manage containers with this implementation, which deployment/management model(s) do you intend to use?</para>
+                                <itemizedlist>
+                                    <para>Options include:</para>
+                                    <listitem>
+                                        <para>Bare metal (dedicated Docker host)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Virtualized (via the
+                                            <application class="software">Magnum</application>
+                                            service)</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <caution>
+                                    <para>The nova-docker plugin for doing Docker deployments to bare metal, outside of an orchestration service like Heat or Magnum, has been deprecated and will eventually be removed from the product.</para>
+                                </caution>
+                                <para>&nbsp;</para>
+                                <para>______________________________________________</para>
+                            </listitem>
+                        </varlistentry>
+                    </variablelist>
+                </sect2>
+                <sect2 xml:id="sec.worksheet.net.misc">
+                    <title>Additional Network Information</title>
+                    <variablelist>
+                        <varlistentry>
+                            <term>Interface Mode</term>
+                            <listitem>
+                                <para>Which network mode will you will be using? ((Single, Dual, Teaming) Remember to take into account whether you are using a highly available control plane or not, if so then you should choose Teaming) DG 2.1.2</para>
+                                <para>&nbsp;</para>
+                                <para>______________________________________________</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term>FQDN</term>
+                            <listitem>
+                                <para>Fully Qualified Domain Name (FQDN) of the Admin server (cannot be changed after deployment).</para>
+                                <para>&nbsp;</para>
+                                <para>______________________________________________</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term>External DNS</term>
+                            <listitem>
+                                <para>Are there additional DNS servers you want SUSE Cloud to forward to for non-local DNS records?</para>
+                                <para>&nbsp;</para>
+                                <para>______________________________________________</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term>
+                                <application class="software">Neutron</application>
+                                L2 Plugin</term>
+                            <listitem>
+                                <para>Which plugin do you wish to use for your software-defined networking stack?</para>
+                                <itemizedlist>
+                                    <para>Options include:</para>
+                                    <listitem>
+                                        <para>Open vSwitch (Default)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Linuxbridge</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>VMware NSX</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Cisco Nexus</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Cisco ACI</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Midokura</para>
+                                    </listitem>
+                                </itemizedlist>
+                                <caution>
+                                    <para>VMware only supports vSphere as part of an OpenStack implementation if used with their NSX SDN.</para>
+                                </caution>
+                                <para>&nbsp;</para>
+                                <para>______________________________________________</para>
+                            </listitem>
+                        </varlistentry>
+                        <varlistentry>
+                            <term><application class="software">Neutron</application>
+                            Encapsulation Plugin</term>
+                        <listitem>
+                            <para>Which packet encapsulation protocol do you wish to use for your software-defined networking stack?</para>
+                            <itemizedlist>
+                                <para>Options include:</para>
+                                <listitem>
+                                    <para>GRE(default)</para>
+                                </listitem>
+                                <listitem>
+                                    <para>VXLAN</para>
+                                </listitem>
+                                <listitem>
+                                    <para>VLAN</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Flat/None</para>
+                                </listitem>
+                            </itemizedlist>
+                            <caution>
+                                <para>The GRE plugin is incompatible with VMware and Hyper-V</para>
+                            </caution>
+                            <para>&nbsp;</para>
+                            <para>______________________________________________</para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </sect2>
+            <sect2 xml:id="sec.worksheet.storage">
+                <title>Storage Information</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>Image Repository</term>
+                        <listitem>
+                            <para>Which storage plugin do you wish to use for your image repository (<application class="software">Glance</application>)
+                            </para>
+                            <itemizedlist>
+                                <para>Options include:</para>
+                                <listitem>
+                                    <para>Local</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Ceph RBD</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Swift</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para>&nbsp;</para>
+                            <para>______________________________________________</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>Block Storage</term>
+                        <listitem>
+                            <para>What storage service do you wish to use as the backend for your block storage (<application class="software">Cinder</application>)</para>
+                            <itemizedlist>
+                                <para>Options include:</para>
+                                <listitem>
+                                    <para>Local</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Ceph RBD</para>
+                                </listitem>
+                                <listitem>
+                                    <para>NetApp</para>
+                                </listitem>
+                                <listitem>
+                                    <para>Fujitsu</para>
+                                </listitem>
+                                <listitem>
+                                    <para>EMC</para>
+                                </listitem>
+                                <listitem>
+                                    <para>EqualLogic</para>
+                                </listitem>
+                                <listitem>
+                                    <para>VMware</para>
+                                </listitem>
+                            </itemizedlist>
+                            <para>&nbsp;</para>
+                            <para>______________________________________________</para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </sect2>
+            <sect2 xml:id="sec.worksheet.smt">
+                <title>Package Source Information</title>
+                <variablelist>
+                    <varlistentry>
+                        <term>Subscription-Management Tool (SMT)</term>
+                        <listitem>
+                            <para>Will you utilize an existing SMT server or install one on the admin node? If existing, then indicate the FQDN below.</para>
+                            <para>&nbsp;</para>
+                            <para>______________________________________________</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term>SUSE Manager</term>
+                        <listitem>
+                            <para>As an alternative to SMT, do you wish to use SUSE Manager as the source for your packages? If so, then indicate the FQDN below.</para>
+                            <para>&nbsp;</para>
+                            <para>______________________________________________</para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+            </sect2>
         </sect1>
-    -->
-        </chapter>
-    </book>
+    </chapter>
+    <chapter xml:id="cha.production">
+        <title>Going from Proof-of-Concept to Production</title>
+        <sect1 xml:id="sec.production.patching">
+            <title>Patching Strategy</title>
+            <para>Identify a strategy for how you plan to patch your cloud infrastructure</para>
+            <variablelist>
+                <varlistentry>
+                    <term>Updater barclamp</term>
+                    <listitem>
+                        <para>The admin node has an "Updater" barclamp available which can be set to automatically deliver patches to the underlying cloud infrastructure servers (<emphasis>NOT</emphasis> the guest workloads).</para>
+                        <orderedlist>
+                            <para>These patches will automaatically be distributed when the following criteria have been met:</para>
+                            <listitem><para>They are available in the repositories the admin server is using for provisioning systems</para></listitem>
+                            <listitem><para>They fit the criteria identified in the barclamp</para></listitem>
+                            <listitem><para>The infrastructure server initiates its chef-client run to verify its configuration</para></listitem>
+                        </orderedlist>
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </sect1>
+        <sect1 xml:id="sec.production.operations">
+            <title>Operational Planning</title>
+            <para>What are the environmental and logistical differences between your proof-of-concept environment for which you will need to adjust your configuration?</para>
+            <variablelist>
+                <varlistentry>
+                    <term>Networking</term>
+                    <listitem><para>Subnets and VLANs</para></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Physical Infrastructure</term>
+                    <listitem><para>Availability zones</para></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Control Plane</term>
+                    <listitem><para>Clustering</para></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Authentication</term>
+                    <listitem><para>Active Directory</para></listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Third-Party applications</term>
+                    <listitem><para>SUSE Studio</para></listitem>
+                </varlistentry>
+            </variablelist>
+        </sect1>
+    </chapter>
+</book>
